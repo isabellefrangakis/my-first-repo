@@ -12,7 +12,7 @@ def determine_winner(u,c):
     elif u == "rock" and c == "scissors":
         return "USER WINS"
     elif u == "paper" and c == "rock":
-        return "COMPUTER WINS" # OOPS
+        return "USER WINS" # OOPS
     elif u == "paper" and c == "paper":
         return "TIE GAME"
     elif u == "paper" and c == "scissors":
@@ -20,37 +20,43 @@ def determine_winner(u,c):
     elif u == "scissors" and c == "rock":
         return "COMPUTER WINS"
     elif u == "scissors" and c == "paper":
-        return "USER WINS"
+        return "COMPUTER WINS"
     elif u == "scissors" and c == "scissors":
         return "TIE GAME"
 
 
-# ASK USER FOR AN INPUT (R/P/S)
+if __name__ == "__main__":
+    # ONLY RUN THE CODE BELOW
+    # IF WE ARE RUNNING THIS SCRIPT FROM THE COMMAND LINE
+    # BUT NOT IF WE'RE IMPORTING
 
-user_choice = input("Please choose one of 'rock', 'paper', or 'scissors': ")
-print("USER:", user_choice)
 
-# VALIDATIONS
+    # ASK USER FOR AN INPUT (R/P/S)
 
-if user_choice not in VALID_OPTIONS:
-    print("OOPS INVALID INPUT, PLEASE TRY AGAIN")
-    # exit()
-    quit()
+    user_choice = input("Please choose one of 'rock', 'paper', or 'scissors': ")
+    print("USER:", user_choice)
 
-# GENERATE RANDOM COMPUTER CHOICE
+    # VALIDATIONS
 
-computer_choice = random.choice(VALID_OPTIONS)
-print("COMP:", computer_choice)
+    if user_choice not in VALID_OPTIONS:
+        print("OOPS INVALID INPUT, PLEASE TRY AGAIN")
+        # exit()
+        quit()
 
-# DETERMINE THE WINNER
+    # GENERATE RANDOM COMPUTER CHOICE
 
-# quick alias to facilitate some copy and pasting
-# we will soon move this into a function anyway
-u = user_choice
-c = computer_choice
+    computer_choice = random.choice(VALID_OPTIONS)
+    print("COMP:", computer_choice)
 
-result = determine_winner(user_choice, computer_choice)
-print(result)
+    # DETERMINE THE WINNER
 
-# assert determine_winner("rock", "rock") == "TIE GAME"
+    # quick alias to facilitate some copy and pasting
+    # we will soon move this into a function anyway
+    u = user_choice
+    c = computer_choice
+
+    result = determine_winner(user_choice, computer_choice)
+    print(result)
+
+    # assert determine_winner("rock", "rock") == "TIE GAME"
 
