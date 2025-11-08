@@ -30,6 +30,19 @@ Install package dependencies
 pip install -r requirements.txt
 ```
 
+### Secret Credentials
+
+For the stocks dashboard, you will need to acquire a "premium" [AlphaVantage](https://www.alphavantage.co/) API key (from the prof) and supply it as an environment variable. Create a local ".env" file and place inside contents like the following:
+
+```sh
+# this is the ".env" file...
+
+# replace "demo" with your premium key:
+ALPHAVANTAGE_API_KEY="demo"
+```
+
+Also, for the stocks tests to work on GitHub Actions, you will need to set a repository secret named `ALPHAVANTAGE_API_KEY` via the repository's settings on GitHub.
+
 ## Usage
 
 Example script:
@@ -46,6 +59,13 @@ python app/rps.py
 # alternative "modular style" command:
 python -m app.rps
 ```
+
+Run the stocks dashboard:
+
+```sh
+python -m app.stocks
+```
+
 
 ## Testing
 
